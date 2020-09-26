@@ -61,18 +61,16 @@ ros/ros.h
 /home/cristian/Documents/catkin_ws/src/simple_arm/src/ros/ros.h
 SubscribeAndPublish.hpp
 /home/cristian/Documents/catkin_ws/src/simple_arm/src/SubscribeAndPublish.hpp
-ros/ros.h
--
 string
 -
+simple_arm/GoToPosition.h
+/home/cristian/Documents/catkin_ws/src/simple_arm/src/simple_arm/GoToPosition.h
 std_msgs/Float64.h
 -
 sensor_msgs/JointState.h
 -
 sensor_msgs/Image.h
 -
-simple_arm/GoToPosition.h
-/home/cristian/Documents/catkin_ws/src/simple_arm/src/simple_arm/GoToPosition.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
