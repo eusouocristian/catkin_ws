@@ -66,8 +66,8 @@ void SubscribeAndPublish::move_arm_center()
 
     // Request centered joint angles [1.57, 1.57]
     
-    srv.request.joint_1 = 1.57;
-    srv.request.joint_2 = 1.57;
+    this->srv.request.joint_1 = 1.57;
+    this->srv.request.joint_2 = 1.57;
 
     
     //Call the safe_move service and pass the requested joint angles

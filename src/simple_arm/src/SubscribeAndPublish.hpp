@@ -12,12 +12,14 @@ public:
   void move_arm_center();
   bool handle_safe_move_request(simple_arm::GoToPosition::Request& req, simple_arm::GoToPosition::Response& res);
   std::vector<float> clamp_at_boundaries(float requested_j1, float requested_j2);
+
 private:
   ros::NodeHandle n; 
   ros::Publisher pub1, pub2;
   ros::Subscriber sub1, sub2;
   std::vector<double> joints_last_position{ 0, 0 };
   bool moving_state;
+  simple_arm::GoToPosition srv;
   ros::ServiceClient client;
   ros::ServiceServer service;
 };
