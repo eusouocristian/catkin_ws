@@ -3,6 +3,7 @@
 #include <sensor_msgs/Image.h>
 #include "simple_arm/GoToPosition.h"
 
+
 class SubscribeAndPublish
 {
 public:
@@ -19,7 +20,6 @@ private:
   ros::Subscriber sub1, sub2;
   std::vector<double> joints_last_position{ 0, 0 };
   bool moving_state;
-  simple_arm::GoToPosition srv;
   ros::ServiceClient client;
   ros::ServiceServer service;
 };
