@@ -5,9 +5,12 @@
 #include <std_msgs/Float64.h>
 #include <sensor_msgs/JointState.h>
 #include <sensor_msgs/Image.h>
+ros::ServiceServer service;
+ros::ServiceClient client;
 
 
 void SubscribeAndPublish::SAPMethod() {
+    ros::NodeHandle n; 
 
     //Topic you want to publish
     this->pub1 = n.advertise<std_msgs::Float64>("/simple_arm/joint_1_position_controller/command", 10);
@@ -17,12 +20,6 @@ void SubscribeAndPublish::SAPMethod() {
     this->sub1 = n.subscribe("/simple_arm/joint_states", 10, &SubscribeAndPublish::joint_states_callback, this);
     this->sub2 = n.subscribe("rgb_camera/image_raw", 10, &SubscribeAndPublish::look_away_callback, this);
     
-    // Define a safe_move service with a handle_safe_move_request callback function
-    this->service = n.advertiseService("/arm_mover/safe_move", &SubscribeAndPublish::handle_safe_move_request,this);
-    ROS_INFO("Ready to send joint commands");
-
-    // Define a client service capable of requesting services from safe_move
-    this->client = this->n.serviceClient<simple_arm::GoToPosition>("/arm_mover/safe_move");
   }
 
 
@@ -62,6 +59,10 @@ void SubscribeAndPublish::look_away_callback(const sensor_msgs::Image img)
 
 void SubscribeAndPublish::move_arm_center()
 {
+    ros::NodeHandle n; 
+    // Define a client service capable of requesting services from safe_move
+
+    client = n.serviceClient<simple_arm::GoToPosition>("/arm_mover/safe_move");
     ROS_INFO_STREAM("Moving the arm to the center");
 
     // Request centered joint angles [1.57, 1.57]
@@ -69,17 +70,19 @@ void SubscribeAndPublish::move_arm_center()
 
     srv.request.joint_1 = 1.57;
     srv.request.joint_2 = 1.57;
+        
+    client.call(srv);
+    ROS_INFO_STREAM("SERVICE CALLED");
 
-    
-    //Call the safe_move service and pass the requested joint angles
-    if (!client.call(srv)) 
-        ROS_ERROR("Failed to call service safe_move");
+    // //Call the safe_move service and pass the requested joint angles
+    // if (!client.call(srv)) 
+    //     ROS_ERROR("Failed to call service safe_move");
 }
 
 
 
 // This function checks and clamps the joint angles to a safe zone
-std::vector<float> SubscribeAndPublish::clamp_at_boundaries(float requested_j1, float requested_j2)
+std::vector<float> clamp_at_boundaries(float requested_j1, float requested_j2)
 {
     // Define clamped joint angles and assign them to the requested ones
     float clamped_j1 = requested_j1;
@@ -116,14 +119,16 @@ std::vector<float> SubscribeAndPublish::clamp_at_boundaries(float requested_j1, 
 
 
 
-bool SubscribeAndPublish::handle_safe_move_request(simple_arm::GoToPosition::Request& req,
-                                    simple_arm::GoToPosition::Response& res)
+bool handle_safe_move_request(simple_arm::GoToPosition::Request& req,
+                            simple_arm::GoToPosition::Response& res)
 {
 
     ROS_INFO("GoToPositionRequest received - j1:%1.2f, j2:%1.2f", (float)req.joint_1, (float)req.joint_2);
-
+    
+    SubscribeAndPublish SAPObj;
+    
     // Check if requested joint angles are in the safe zone, otherwise clamp them
-    std::vector<float> joints_angles = SubscribeAndPublish::clamp_at_boundaries(req.joint_1, req.joint_2);
+    std::vector<float> joints_angles = clamp_at_boundaries(req.joint_1, req.joint_2);
 
     // Create Float64 variables to publish
     std_msgs::Float64 joint1_angle, joint2_angle;
@@ -131,8 +136,8 @@ bool SubscribeAndPublish::handle_safe_move_request(simple_arm::GoToPosition::Req
     joint2_angle.data = joints_angles[1];
 
     // Publish clamped joint angles to the arm
-    pub1.publish(joint1_angle);
-    pub2.publish(joint2_angle);
+    SAPObj.pub1.publish(joint1_angle);
+    SAPObj.pub2.publish(joint2_angle);
 
     // Wait 3 seconds for arm to settle
     ros::Duration(3).sleep();
@@ -150,10 +155,15 @@ int main(int argc, char** argv)
 {
     // Initialize the look_away node and create a handle to it
     ros::init(argc, argv, "unique_arm_mover");
-    
+    ros::NodeHandle n;
+
+    // Define a safe_move service with a handle_safe_move_request callback function
+    service = n.advertiseService("/arm_mover/safe_move", handle_safe_move_request);
+    ROS_INFO("Ready to send joint commands");
+
     SubscribeAndPublish SAPObj;
     SAPObj.SAPMethod();
- 
+
     // Handle ROS communication events
     ros::spin();
 

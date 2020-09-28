@@ -47,7 +47,6 @@
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/list_install_components.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/edit_cache.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/simple_arm_genpy.dir
-/home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/unique_arm_mover.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/roscpp_generate_messages_nodejs.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/roscpp_generate_messages_cpp.dir
@@ -78,6 +77,7 @@
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/simple_arm_generate_messages.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/controller_manager_msgs_generate_messages_py.dir
+/home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/look_away.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/simple_arm_genlisp.dir
 /home/cristian/Documents/catkin_ws/build/simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir
