@@ -311,6 +311,19 @@ simple_arm_genpy/fast:
 .PHONY : simple_arm_genpy/fast
 
 #=============================================================================
+# Target rules for targets named unique_arm_mover
+
+# Build rule for target.
+unique_arm_mover: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unique_arm_mover
+.PHONY : unique_arm_mover
+
+# fast build rule for target.
+unique_arm_mover/fast:
+	$(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/build
+.PHONY : unique_arm_mover/fast
+
+#=============================================================================
 # Target rules for targets named simple_arm_generate_messages_py
 
 # Build rule for target.
@@ -465,19 +478,6 @@ std_msgs_generate_messages_lisp: cmake_check_build_system
 std_msgs_generate_messages_lisp/fast:
 	$(MAKE) -f simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named arm_mover
-
-# Build rule for target.
-arm_mover: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 arm_mover
-.PHONY : arm_mover
-
-# fast build rule for target.
-arm_mover/fast:
-	$(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/build
-.PHONY : arm_mover/fast
 
 #=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_py
@@ -649,19 +649,6 @@ controller_manager_msgs_generate_messages_py/fast:
 .PHONY : controller_manager_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named look_away
-
-# Build rule for target.
-look_away: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 look_away
-.PHONY : look_away
-
-# fast build rule for target.
-look_away/fast:
-	$(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/build
-.PHONY : look_away/fast
-
-#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -763,6 +750,7 @@ help:
 	@echo "... gtest"
 	@echo "... _catkin_empty_exported_target"
 	@echo "... simple_arm_genpy"
+	@echo "... unique_arm_mover"
 	@echo "... simple_arm_generate_messages_py"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_cpp"
@@ -775,7 +763,6 @@ help:
 	@echo "... simple_arm_generate_messages_eus"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... arm_mover"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
@@ -789,7 +776,6 @@ help:
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... simple_arm_generate_messages"
 	@echo "... controller_manager_msgs_generate_messages_py"
-	@echo "... look_away"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... simple_arm_genlisp"
 	@echo "... _simple_arm_generate_messages_check_deps_GoToPosition"

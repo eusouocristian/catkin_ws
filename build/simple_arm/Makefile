@@ -183,6 +183,21 @@ simple_arm_genpy/fast:
 .PHONY : simple_arm_genpy/fast
 
 # Convenience name for target.
+simple_arm/CMakeFiles/unique_arm_mover.dir/rule:
+	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/unique_arm_mover.dir/rule
+.PHONY : simple_arm/CMakeFiles/unique_arm_mover.dir/rule
+
+# Convenience name for target.
+unique_arm_mover: simple_arm/CMakeFiles/unique_arm_mover.dir/rule
+
+.PHONY : unique_arm_mover
+
+# fast build rule for target.
+unique_arm_mover/fast:
+	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/build
+.PHONY : unique_arm_mover/fast
+
+# Convenience name for target.
 simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/rule:
 	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/rule
 .PHONY : simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/rule
@@ -361,21 +376,6 @@ std_msgs_generate_messages_lisp: simple_arm/CMakeFiles/std_msgs_generate_message
 std_msgs_generate_messages_lisp/fast:
 	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 .PHONY : std_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
-simple_arm/CMakeFiles/arm_mover.dir/rule:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/arm_mover.dir/rule
-.PHONY : simple_arm/CMakeFiles/arm_mover.dir/rule
-
-# Convenience name for target.
-arm_mover: simple_arm/CMakeFiles/arm_mover.dir/rule
-
-.PHONY : arm_mover
-
-# fast build rule for target.
-arm_mover/fast:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/build
-.PHONY : arm_mover/fast
 
 # Convenience name for target.
 simple_arm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
@@ -573,21 +573,6 @@ controller_manager_msgs_generate_messages_py/fast:
 .PHONY : controller_manager_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-simple_arm/CMakeFiles/look_away.dir/rule:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/look_away.dir/rule
-.PHONY : simple_arm/CMakeFiles/look_away.dir/rule
-
-# Convenience name for target.
-look_away: simple_arm/CMakeFiles/look_away.dir/rule
-
-.PHONY : look_away
-
-# fast build rule for target.
-look_away/fast:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/build
-.PHONY : look_away/fast
-
-# Convenience name for target.
 simple_arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 .PHONY : simple_arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
@@ -677,59 +662,32 @@ simple_arm_generate_messages_nodejs/fast:
 	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/build
 .PHONY : simple_arm_generate_messages_nodejs/fast
 
-src/arm_mover.o: src/arm_mover.cpp.o
+src/unique_arm_mover.o: src/unique_arm_mover.cpp.o
 
-.PHONY : src/arm_mover.o
-
-# target to build an object file
-src/arm_mover.cpp.o:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/src/arm_mover.cpp.o
-.PHONY : src/arm_mover.cpp.o
-
-src/arm_mover.i: src/arm_mover.cpp.i
-
-.PHONY : src/arm_mover.i
-
-# target to preprocess a source file
-src/arm_mover.cpp.i:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/src/arm_mover.cpp.i
-.PHONY : src/arm_mover.cpp.i
-
-src/arm_mover.s: src/arm_mover.cpp.s
-
-.PHONY : src/arm_mover.s
-
-# target to generate assembly for a file
-src/arm_mover.cpp.s:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/src/arm_mover.cpp.s
-.PHONY : src/arm_mover.cpp.s
-
-src/look_away.o: src/look_away.cpp.o
-
-.PHONY : src/look_away.o
+.PHONY : src/unique_arm_mover.o
 
 # target to build an object file
-src/look_away.cpp.o:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/src/look_away.cpp.o
-.PHONY : src/look_away.cpp.o
+src/unique_arm_mover.cpp.o:
+	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/src/unique_arm_mover.cpp.o
+.PHONY : src/unique_arm_mover.cpp.o
 
-src/look_away.i: src/look_away.cpp.i
+src/unique_arm_mover.i: src/unique_arm_mover.cpp.i
 
-.PHONY : src/look_away.i
+.PHONY : src/unique_arm_mover.i
 
 # target to preprocess a source file
-src/look_away.cpp.i:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/src/look_away.cpp.i
-.PHONY : src/look_away.cpp.i
+src/unique_arm_mover.cpp.i:
+	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/src/unique_arm_mover.cpp.i
+.PHONY : src/unique_arm_mover.cpp.i
 
-src/look_away.s: src/look_away.cpp.s
+src/unique_arm_mover.s: src/unique_arm_mover.cpp.s
 
-.PHONY : src/look_away.s
+.PHONY : src/unique_arm_mover.s
 
 # target to generate assembly for a file
-src/look_away.cpp.s:
-	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/src/look_away.cpp.s
-.PHONY : src/look_away.cpp.s
+src/unique_arm_mover.cpp.s:
+	cd /home/cristian/Documents/catkin_ws/build && $(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/src/unique_arm_mover.cpp.s
+.PHONY : src/unique_arm_mover.cpp.s
 
 # Help Target
 help:
@@ -741,6 +699,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... edit_cache"
 	@echo "... simple_arm_genpy"
+	@echo "... unique_arm_mover"
 	@echo "... simple_arm_generate_messages_py"
 	@echo "... roscpp_generate_messages_nodejs"
 	@echo "... roscpp_generate_messages_cpp"
@@ -755,7 +714,6 @@ help:
 	@echo "... simple_arm_generate_messages_eus"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... std_msgs_generate_messages_lisp"
-	@echo "... arm_mover"
 	@echo "... rosgraph_msgs_generate_messages_py"
 	@echo "... std_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
@@ -771,19 +729,15 @@ help:
 	@echo "... controller_manager_msgs_generate_messages_nodejs"
 	@echo "... simple_arm_generate_messages"
 	@echo "... controller_manager_msgs_generate_messages_py"
-	@echo "... look_away"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... simple_arm_genlisp"
 	@echo "... _simple_arm_generate_messages_check_deps_GoToPosition"
 	@echo "... simple_arm_generate_messages_cpp"
 	@echo "... simple_arm_generate_messages_lisp"
 	@echo "... simple_arm_generate_messages_nodejs"
-	@echo "... src/arm_mover.o"
-	@echo "... src/arm_mover.i"
-	@echo "... src/arm_mover.s"
-	@echo "... src/look_away.o"
-	@echo "... src/look_away.i"
-	@echo "... src/look_away.s"
+	@echo "... src/unique_arm_mover.o"
+	@echo "... src/unique_arm_mover.i"
+	@echo "... src/unique_arm_mover.s"
 .PHONY : help
 
 

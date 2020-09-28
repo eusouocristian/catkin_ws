@@ -55,6 +55,7 @@ CMAKE_BINARY_DIR = /home/cristian/Documents/catkin_ws/build
 # The main recursive "all" target.
 all: gtest/all
 all: first_package/all
+all: my_robot/all
 all: simple_arm/all
 
 .PHONY : all
@@ -62,6 +63,7 @@ all: simple_arm/all
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
 preinstall: first_package/preinstall
+preinstall: my_robot/preinstall
 preinstall: simple_arm/preinstall
 
 .PHONY : preinstall
@@ -74,6 +76,7 @@ clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
 clean: first_package/clean
+clean: my_robot/clean
 clean: simple_arm/clean
 
 .PHONY : clean
@@ -154,12 +157,29 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/clean
 
 #=============================================================================
+# Directory level rules for directory my_robot
+
+# Recursive "all" directory target.
+my_robot/all:
+
+.PHONY : my_robot/all
+
+# Recursive "preinstall" directory target.
+my_robot/preinstall:
+
+.PHONY : my_robot/preinstall
+
+# Recursive "clean" directory target.
+my_robot/clean:
+
+.PHONY : my_robot/clean
+
+#=============================================================================
 # Directory level rules for directory simple_arm
 
 # Recursive "all" directory target.
-simple_arm/all: simple_arm/CMakeFiles/arm_mover.dir/all
+simple_arm/all: simple_arm/CMakeFiles/unique_arm_mover.dir/all
 simple_arm/all: simple_arm/CMakeFiles/simple_arm_generate_messages.dir/all
-simple_arm/all: simple_arm/CMakeFiles/look_away.dir/all
 
 .PHONY : simple_arm/all
 
@@ -170,6 +190,7 @@ simple_arm/preinstall:
 
 # Recursive "clean" directory target.
 simple_arm/clean: simple_arm/CMakeFiles/simple_arm_genpy.dir/clean
+simple_arm/clean: simple_arm/CMakeFiles/unique_arm_mover.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
@@ -182,7 +203,6 @@ simple_arm/clean: simple_arm/CMakeFiles/simple_arm_geneus.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-simple_arm/clean: simple_arm/CMakeFiles/arm_mover.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
@@ -196,7 +216,6 @@ simple_arm/clean: simple_arm/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/
 simple_arm/clean: simple_arm/CMakeFiles/controller_manager_msgs_generate_messages_nodejs.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/simple_arm_generate_messages.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean
-simple_arm/clean: simple_arm/CMakeFiles/look_away.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/simple_arm_genlisp.dir/clean
 simple_arm/clean: simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir/clean
@@ -349,7 +368,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=5,6 "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -376,7 +395,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=3,4 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=1,2 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
@@ -403,7 +422,7 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=9,10 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=7,8 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -430,7 +449,7 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=7,8 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=5,6 "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
@@ -505,6 +524,33 @@ simple_arm/CMakeFiles/simple_arm_genpy.dir/clean:
 .PHONY : simple_arm/CMakeFiles/simple_arm_genpy.dir/clean
 
 #=============================================================================
+# Target rules for target simple_arm/CMakeFiles/unique_arm_mover.dir
+
+# All Build rule for target.
+simple_arm/CMakeFiles/unique_arm_mover.dir/all: simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/all
+	$(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/depend
+	$(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=16,17 "Built target unique_arm_mover"
+.PHONY : simple_arm/CMakeFiles/unique_arm_mover.dir/all
+
+# Build rule for subdir invocation for target.
+simple_arm/CMakeFiles/unique_arm_mover.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cristian/Documents/catkin_ws/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/unique_arm_mover.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cristian/Documents/catkin_ws/build/CMakeFiles 0
+.PHONY : simple_arm/CMakeFiles/unique_arm_mover.dir/rule
+
+# Convenience name for target.
+unique_arm_mover: simple_arm/CMakeFiles/unique_arm_mover.dir/rule
+
+.PHONY : unique_arm_mover
+
+# clean rule for target.
+simple_arm/CMakeFiles/unique_arm_mover.dir/clean:
+	$(MAKE) -f simple_arm/CMakeFiles/unique_arm_mover.dir/build.make simple_arm/CMakeFiles/unique_arm_mover.dir/clean
+.PHONY : simple_arm/CMakeFiles/unique_arm_mover.dir/clean
+
+#=============================================================================
 # Target rules for target simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir
 
 # All Build rule for target.
@@ -512,7 +558,7 @@ simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/all: simple_arm/CMakeF
 simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/all: simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir/all
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/depend
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=18,19 "Built target simple_arm_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=14,15 "Built target simple_arm_generate_messages_py"
 .PHONY : simple_arm/CMakeFiles/simple_arm_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -756,7 +802,7 @@ simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/all: simple_arm/CMake
 simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/all: simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir/all
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/depend
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=14,15 "Built target simple_arm_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=10,11 "Built target simple_arm_generate_messages_eus"
 .PHONY : simple_arm/CMakeFiles/simple_arm_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -829,33 +875,6 @@ std_msgs_generate_messages_lisp: simple_arm/CMakeFiles/std_msgs_generate_message
 simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
 	$(MAKE) -f simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 .PHONY : simple_arm/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-
-#=============================================================================
-# Target rules for target simple_arm/CMakeFiles/arm_mover.dir
-
-# All Build rule for target.
-simple_arm/CMakeFiles/arm_mover.dir/all: simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/all
-	$(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/depend
-	$(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=1,2 "Built target arm_mover"
-.PHONY : simple_arm/CMakeFiles/arm_mover.dir/all
-
-# Build rule for subdir invocation for target.
-simple_arm/CMakeFiles/arm_mover.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cristian/Documents/catkin_ws/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/arm_mover.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cristian/Documents/catkin_ws/build/CMakeFiles 0
-.PHONY : simple_arm/CMakeFiles/arm_mover.dir/rule
-
-# Convenience name for target.
-arm_mover: simple_arm/CMakeFiles/arm_mover.dir/rule
-
-.PHONY : arm_mover
-
-# clean rule for target.
-simple_arm/CMakeFiles/arm_mover.dir/clean:
-	$(MAKE) -f simple_arm/CMakeFiles/arm_mover.dir/build.make simple_arm/CMakeFiles/arm_mover.dir/clean
-.PHONY : simple_arm/CMakeFiles/arm_mover.dir/clean
 
 #=============================================================================
 # Target rules for target simple_arm/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
@@ -1213,33 +1232,6 @@ simple_arm/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean:
 .PHONY : simple_arm/CMakeFiles/controller_manager_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target simple_arm/CMakeFiles/look_away.dir
-
-# All Build rule for target.
-simple_arm/CMakeFiles/look_away.dir/all: simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/all
-	$(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/depend
-	$(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=11,12 "Built target look_away"
-.PHONY : simple_arm/CMakeFiles/look_away.dir/all
-
-# Build rule for subdir invocation for target.
-simple_arm/CMakeFiles/look_away.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cristian/Documents/catkin_ws/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 simple_arm/CMakeFiles/look_away.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cristian/Documents/catkin_ws/build/CMakeFiles 0
-.PHONY : simple_arm/CMakeFiles/look_away.dir/rule
-
-# Convenience name for target.
-look_away: simple_arm/CMakeFiles/look_away.dir/rule
-
-.PHONY : look_away
-
-# clean rule for target.
-simple_arm/CMakeFiles/look_away.dir/clean:
-	$(MAKE) -f simple_arm/CMakeFiles/look_away.dir/build.make simple_arm/CMakeFiles/look_away.dir/clean
-.PHONY : simple_arm/CMakeFiles/look_away.dir/clean
-
-#=============================================================================
 # Target rules for target simple_arm/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
@@ -1328,7 +1320,7 @@ simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/all: simple_arm/CMake
 simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/all: simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir/all
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/depend
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=13 "Built target simple_arm_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=9 "Built target simple_arm_generate_messages_cpp"
 .PHONY : simple_arm/CMakeFiles/simple_arm_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1356,7 +1348,7 @@ simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/all: simple_arm/CMak
 simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/all: simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir/all
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/depend
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=16 "Built target simple_arm_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=12 "Built target simple_arm_generate_messages_lisp"
 .PHONY : simple_arm/CMakeFiles/simple_arm_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1384,7 +1376,7 @@ simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/all: simple_arm/CM
 simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/all: simple_arm/CMakeFiles/_simple_arm_generate_messages_check_deps_GoToPosition.dir/all
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/depend
 	$(MAKE) -f simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/build.make simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=17 "Built target simple_arm_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cristian/Documents/catkin_ws/build/CMakeFiles --progress-num=13 "Built target simple_arm_generate_messages_nodejs"
 .PHONY : simple_arm/CMakeFiles/simple_arm_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
