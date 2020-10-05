@@ -12,6 +12,7 @@ find_package(catkin REQUIRED COMPONENTS
 	std_msgs
 	message_generation
 	controller_manager
+	roscpp
 )
 
 ## System dependencies are found with CMake's conventions
