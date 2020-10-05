@@ -101,9 +101,9 @@ void process_image_callback(const sensor_msgs::Image img)
     float X_error = X_ref - X_perc;
     int distance_ref = 400;
     int distance_error = distance_ref - distance;
-    //Action of 0.3 when the error is 0.4
+    //Action of 5 when the error is 0.4
     float P_X = 5/0.4;
-    //Action of 0.15 when the error is 400
+    //Action of 0.5 when the error is 400
     float P_distance = 0.5/400;
 
 
