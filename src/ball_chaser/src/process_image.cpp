@@ -106,6 +106,15 @@ void process_image_callback(const sensor_msgs::Image img)
     //Action of 0.5 when the error is 400
     float P_distance = 0.5/400;
 
+    
+    // int test;
+
+    // if (not test) {
+    //     teste = 1;
+    // }
+    // ROS_INFO_STREAM( "Test: " << teste);
+
+
 
 
     // The control actions 

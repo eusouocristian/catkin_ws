@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 
-<robot name="second_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
-<xacro:include filename="$(find my_robot)/urdf/second_robot.gazebo" />
+<robot name="new_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find my_robot)/urdf/new_robot.gazebo" />
 
 
 
