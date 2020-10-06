@@ -9,8 +9,8 @@
       <updateRate>10</updateRate>
       <leftJoint>left_front_axis</leftJoint>
       <rightJoint>right_front_axis</rightJoint>
-      <wheelSeparation>0.45</wheelSeparation>
-      <wheelDiameter>0.12</wheelDiameter>
+      <wheelSeparation>0.5</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
       <torque>10</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
@@ -20,7 +20,7 @@
       <publishWheelJointState>false</publishWheelJointState>
       <rosDebugLevel>na</rosDebugLevel>
       <wheelAcceleration>0</wheelAcceleration>
-      <wheelTorque>5</wheelTorque>
+      <wheelTorque>10</wheelTorque>
       <odometrySource>world</odometrySource>
       <publishTf>1</publishTf>
       <publishOdomTF>true</publishOdomTF>
@@ -35,8 +35,8 @@
       <updateRate>10</updateRate>
       <leftJoint>left_back_axis</leftJoint>
       <rightJoint>right_back_axis</rightJoint>
-      <wheelSeparation>0.45</wheelSeparation>
-      <wheelDiameter>0.12</wheelDiameter>
+      <wheelSeparation>0.5</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter>
       <torque>10</torque>
       <commandTopic>cmd_vel</commandTopic>
       <odometryTopic>odom</odometryTopic>
@@ -46,7 +46,7 @@
       <publishWheelJointState>false</publishWheelJointState>
       <rosDebugLevel>na</rosDebugLevel>
       <wheelAcceleration>0</wheelAcceleration>
-      <wheelTorque>5</wheelTorque>
+      <wheelTorque>10</wheelTorque>
       <odometrySource>world</odometrySource>
       <publishTf>0</publishTf>
       <publishOdomTF>false</publishOdomTF>

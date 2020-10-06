@@ -2,9 +2,14 @@
 #include "ball_chaser/DriveToTarget.h"
 #include <sensor_msgs/Image.h>
 #include <vector>
+#include <optional>
 
 // Define a global client that can request services
 ros::ServiceClient client;
+// Define global vectors for calculating the Integrative component for a PI controller
+std::vector<float> linear_error_vector;
+std::vector<float> angular_error_vector;
+
 
 // This function calls the command_robot service to drive the robot in the specified direction
 void drive_robot(float lin_x, float ang_z)
@@ -17,6 +22,7 @@ void drive_robot(float lin_x, float ang_z)
     if (!client.call(srv))
         ROS_ERROR("Failed to call service");
 }
+
 
 
 // This callback function continuously executes and reads the image data
@@ -94,39 +100,74 @@ void process_image_callback(const sensor_msgs::Image img)
         Y_perc = 1;
     }
 
-    // ROS_INFO("X= %.2f    Y= %.2f    Distance: %d", X_perc, Y_perc, distance);
+    // Set parameters for Feedback control
+    float angular_ref = 0.5;
+    float angular_error = angular_ref - X_perc;
+    int linear_ref = 400;
+    int linear_error = linear_ref - distance;
 
-    // Set parameters for Proportional controller P
-    float X_ref = 0.5;
-    float X_error = X_ref - X_perc;
-    int distance_ref = 400;
-    int distance_error = distance_ref - distance;
-    //Action of 5 when the error is 0.4
-    float P_X = 5/0.4;
-    //Action of 0.5 when the error is 400
-    float P_distance = 0.5/400;
+    // Set parameter for Proportional & Integral controller - PI
+    float Kp_linear = 0.001;
+    float Ki_linear = 0.00005;
+    float Kp_angular = 10;
+    float Ki_angular = 0.01;
 
-    
-    // int test;
+    // Fix error values when the ball is out of the frame
+    if (linear_error == 1200) {
+        linear_error = 0;
+    }
+    if (angular_error == -0.5) {
+        angular_error = 0.5;
+    }
 
-    // if (not test) {
-    //     teste = 1;
-    // }
-    // ROS_INFO_STREAM( "Test: " << teste);
+    // Update the values of error in the vector 
+    linear_error_vector.push_back(linear_error); 
+    angular_error_vector.push_back(angular_error);   
+  
+    // erase the positions of the vector with older values | Keep the vector with defined length
+    int vector_linear_length = 20; // It corresponds to the Integration Time 
+    for (int k = 1; k < linear_error_vector.size(); k++){
+        if (k > vector_linear_length) {	
+            linear_error_vector.erase(linear_error_vector.begin());
+        }
+    }
+    // Calculate the sum of the values inside the vector
+    // It corresponds to the Integral of errors related to defined Integration time
+    float sum_linear_errors = 0; 
+    for (int j = 1; j < linear_error_vector.size(); j++) {
+        sum_linear_errors = sum_linear_errors + linear_error_vector[j];
+    }
 
+    // erase the positions of the vector with older values | Keep the vector with defined length
+    int vector_angular_length = 20;// It corresponds to the Integration Time 
+    for (int m = 1; m < angular_error_vector.size(); m++){
+        if (m > vector_angular_length) {	
+            angular_error_vector.erase(angular_error_vector.begin());
+        }
+    }
+    // Calculate the sum of the values inside the vector
+    // It corresponds to the Integral of errors related to defined Integration time
+    float sum_angular_errors = 0; 
+    for (int q = 1; q < angular_error_vector.size(); q++) {
+        sum_angular_errors = sum_angular_errors + angular_error_vector[q];
+    }
 
+    // Calculate the control_action for linear and angular actions based on Parallel PID structure
+    float control_action_linear = (Kp_linear * linear_error) + (Ki_linear * sum_linear_errors);
+    float control_action_angular = (Kp_angular * angular_error) + (Ki_angular * sum_angular_errors);
 
-
-    // The control actions 
+    // The control actions when the ball is out of the frame 
+    // It makes the robot turn around to look for the ball somewhere
     if (X_perc == 1) {
         //if the ball is out of the frame, robot will turn around
         drive_robot(0, 2);
     } else {
-        //When the ball is detected, the robot starts movinto on its direction
-        drive_robot(P_distance * distance_error, P_X * X_error);
-
-    }
-
+        //When the ball is detected, the robot starts moving towards its direction
+        drive_robot(control_action_linear ,  control_action_angular);
+        }
+    
+    
+    ROS_INFO("linear: %.2f  sum_errors: %.2f || Angular: %.2f  sum_errors: %.2f", (float)control_action_linear, (float)sum_linear_errors, (float)control_action_angular, (float)sum_angular_errors );   
 
 }
 
