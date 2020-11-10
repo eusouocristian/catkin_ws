@@ -61,20 +61,6 @@ ros::message_operations::Printer< ::simple_arm::GoToPositionResponse_<ContainerA
 return s;
 }
 
-
-template<typename ContainerAllocator1, typename ContainerAllocator2>
-bool operator==(const ::simple_arm::GoToPositionResponse_<ContainerAllocator1> & lhs, const ::simple_arm::GoToPositionResponse_<ContainerAllocator2> & rhs)
-{
-  return lhs.msg_feedback == rhs.msg_feedback;
-}
-
-template<typename ContainerAllocator1, typename ContainerAllocator2>
-bool operator!=(const ::simple_arm::GoToPositionResponse_<ContainerAllocator1> & lhs, const ::simple_arm::GoToPositionResponse_<ContainerAllocator2> & rhs)
-{
-  return !(lhs == rhs);
-}
-
-
 } // namespace simple_arm
 
 namespace ros
@@ -84,17 +70,13 @@ namespace message_traits
 
 
 
+// BOOLTRAITS {'IsFixedSize': False, 'IsMessage': True, 'HasHeader': False}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
+
+// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
 
-template <class ContainerAllocator>
-struct IsMessage< ::simple_arm::GoToPositionResponse_<ContainerAllocator> >
-  : TrueType
-  { };
 
-template <class ContainerAllocator>
-struct IsMessage< ::simple_arm::GoToPositionResponse_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::simple_arm::GoToPositionResponse_<ContainerAllocator> >
@@ -104,6 +86,16 @@ struct IsFixedSize< ::simple_arm::GoToPositionResponse_<ContainerAllocator> >
 template <class ContainerAllocator>
 struct IsFixedSize< ::simple_arm::GoToPositionResponse_<ContainerAllocator> const>
   : FalseType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::simple_arm::GoToPositionResponse_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::simple_arm::GoToPositionResponse_<ContainerAllocator> const>
+  : TrueType
   { };
 
 template <class ContainerAllocator>
@@ -146,9 +138,9 @@ struct Definition< ::simple_arm::GoToPositionResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "string msg_feedback\n"
-"\n"
-;
+    return "string msg_feedback\n\
+\n\
+";
   }
 
   static const char* value(const ::simple_arm::GoToPositionResponse_<ContainerAllocator>&) { return value(); }

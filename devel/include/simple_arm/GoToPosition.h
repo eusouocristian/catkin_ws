@@ -57,8 +57,8 @@ struct DataType< ::simple_arm::GoToPosition > {
 };
 
 
-// service_traits::MD5Sum< ::simple_arm::GoToPositionRequest> should match
-// service_traits::MD5Sum< ::simple_arm::GoToPosition >
+// service_traits::MD5Sum< ::simple_arm::GoToPositionRequest> should match 
+// service_traits::MD5Sum< ::simple_arm::GoToPosition > 
 template<>
 struct MD5Sum< ::simple_arm::GoToPositionRequest>
 {
@@ -72,8 +72,8 @@ struct MD5Sum< ::simple_arm::GoToPositionRequest>
   }
 };
 
-// service_traits::DataType< ::simple_arm::GoToPositionRequest> should match
-// service_traits::DataType< ::simple_arm::GoToPosition >
+// service_traits::DataType< ::simple_arm::GoToPositionRequest> should match 
+// service_traits::DataType< ::simple_arm::GoToPosition > 
 template<>
 struct DataType< ::simple_arm::GoToPositionRequest>
 {
@@ -87,8 +87,8 @@ struct DataType< ::simple_arm::GoToPositionRequest>
   }
 };
 
-// service_traits::MD5Sum< ::simple_arm::GoToPositionResponse> should match
-// service_traits::MD5Sum< ::simple_arm::GoToPosition >
+// service_traits::MD5Sum< ::simple_arm::GoToPositionResponse> should match 
+// service_traits::MD5Sum< ::simple_arm::GoToPosition > 
 template<>
 struct MD5Sum< ::simple_arm::GoToPositionResponse>
 {
@@ -102,8 +102,8 @@ struct MD5Sum< ::simple_arm::GoToPositionResponse>
   }
 };
 
-// service_traits::DataType< ::simple_arm::GoToPositionResponse> should match
-// service_traits::DataType< ::simple_arm::GoToPosition >
+// service_traits::DataType< ::simple_arm::GoToPositionResponse> should match 
+// service_traits::DataType< ::simple_arm::GoToPosition > 
 template<>
 struct DataType< ::simple_arm::GoToPositionResponse>
 {

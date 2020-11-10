@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cristian/Documents/catkin_ws/devel/include/simple_arm/GoToPosition.h"
   "CMakeFiles/simple_arm_generate_messages_cpp"
+  "/home/cristian/Documents/catkin_ws/devel/include/simple_arm/GoToPosition.h"
 )
 
 # Per-language clean rules from dependency scanning.

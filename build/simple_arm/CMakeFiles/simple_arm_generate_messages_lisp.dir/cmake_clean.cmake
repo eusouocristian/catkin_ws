@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/cristian/Documents/catkin_ws/devel/share/common-lisp/ros/simple_arm/srv/GoToPosition.lisp"
   "CMakeFiles/simple_arm_generate_messages_lisp"
+  "/home/cristian/Documents/catkin_ws/devel/share/common-lisp/ros/simple_arm/srv/GoToPosition.lisp"
 )
 
 # Per-language clean rules from dependency scanning.

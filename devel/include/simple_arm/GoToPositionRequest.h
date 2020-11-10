@@ -66,21 +66,6 @@ ros::message_operations::Printer< ::simple_arm::GoToPositionRequest_<ContainerAl
 return s;
 }
 
-
-template<typename ContainerAllocator1, typename ContainerAllocator2>
-bool operator==(const ::simple_arm::GoToPositionRequest_<ContainerAllocator1> & lhs, const ::simple_arm::GoToPositionRequest_<ContainerAllocator2> & rhs)
-{
-  return lhs.joint_1 == rhs.joint_1 &&
-    lhs.joint_2 == rhs.joint_2;
-}
-
-template<typename ContainerAllocator1, typename ContainerAllocator2>
-bool operator!=(const ::simple_arm::GoToPositionRequest_<ContainerAllocator1> & lhs, const ::simple_arm::GoToPositionRequest_<ContainerAllocator2> & rhs)
-{
-  return !(lhs == rhs);
-}
-
-
 } // namespace simple_arm
 
 namespace ros
@@ -90,17 +75,13 @@ namespace message_traits
 
 
 
+// BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg']}
+
+// !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
 
-template <class ContainerAllocator>
-struct IsMessage< ::simple_arm::GoToPositionRequest_<ContainerAllocator> >
-  : TrueType
-  { };
 
-template <class ContainerAllocator>
-struct IsMessage< ::simple_arm::GoToPositionRequest_<ContainerAllocator> const>
-  : TrueType
-  { };
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::simple_arm::GoToPositionRequest_<ContainerAllocator> >
@@ -109,6 +90,16 @@ struct IsFixedSize< ::simple_arm::GoToPositionRequest_<ContainerAllocator> >
 
 template <class ContainerAllocator>
 struct IsFixedSize< ::simple_arm::GoToPositionRequest_<ContainerAllocator> const>
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::simple_arm::GoToPositionRequest_<ContainerAllocator> >
+  : TrueType
+  { };
+
+template <class ContainerAllocator>
+struct IsMessage< ::simple_arm::GoToPositionRequest_<ContainerAllocator> const>
   : TrueType
   { };
 
@@ -152,9 +143,9 @@ struct Definition< ::simple_arm::GoToPositionRequest_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "float64 joint_1\n"
-"float64 joint_2\n"
-;
+    return "float64 joint_1\n\
+float64 joint_2\n\
+";
   }
 
   static const char* value(const ::simple_arm::GoToPositionRequest_<ContainerAllocator>&) { return value(); }

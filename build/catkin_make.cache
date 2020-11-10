@@ -1,2 +1,2 @@
-ball_chaser:my_robot:simple_arm
+ball_chaser:my_robot:pgm_map_creator:simple_arm:teleop_twist_keyboard
 -DCATKIN_DEVEL_PREFIX=/home/cristian/Documents/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/cristian/Documents/catkin_ws/install -G Unix Makefiles

@@ -2,4 +2,4 @@
 source_root_dir = '/home/cristian/Documents/catkin_ws/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/home/cristian/Documents/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/home/cristian/Documents/catkin_ws/devel;/opt/ros/noetic' != '' else []
+underlay_workspaces = '/opt/ros/kinetic'.split(';') if '/opt/ros/kinetic' != '' else []

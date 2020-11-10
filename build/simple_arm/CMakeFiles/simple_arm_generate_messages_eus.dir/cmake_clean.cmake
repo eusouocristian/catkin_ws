@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
-  "/home/cristian/Documents/catkin_ws/devel/share/roseus/ros/simple_arm/manifest.l"
-  "/home/cristian/Documents/catkin_ws/devel/share/roseus/ros/simple_arm/srv/GoToPosition.l"
   "CMakeFiles/simple_arm_generate_messages_eus"
+  "/home/cristian/Documents/catkin_ws/devel/share/roseus/ros/simple_arm/srv/GoToPosition.l"
+  "/home/cristian/Documents/catkin_ws/devel/share/roseus/ros/simple_arm/manifest.l"
 )
 
 # Per-language clean rules from dependency scanning.
