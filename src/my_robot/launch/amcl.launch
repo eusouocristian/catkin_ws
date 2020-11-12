@@ -4,15 +4,16 @@
 	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
 	<node name="amcl" type="amcl" pkg="amcl" output="screen">
-		<remap from="scan" to="my_robot/laser/scan"/>
+		<remap from="scan" to="/scan"/>
 	 	<param name="odom_frame_id" value="odom"/>
 	  	<param name="odom_model_type" value="diff-corrected"/>
 	  	<param name="base_frame_id" value="robot_footprint"/>
 	  	<param name="global_frame_id" value="map"/>
 
 		<!-- Initial position of the robot, equal to the position defined at world.launch -->
-		<param name="initial_pose_x" value="6.8"/>
-		<param name="initial_pose_y" value="0"/>	
+		<param name="initial_pose_x" value="4.988"/>  
+		<param name="initial_pose_y" value="-6.868"/>	
+		<param name="initial_pose_a" value="2.845"/>
 	</node>
 
 	<node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
