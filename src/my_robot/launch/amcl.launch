@@ -11,9 +11,9 @@
 	  	<param name="global_frame_id" value="map"/>
 
 		<!-- Initial position of the robot, equal to the position defined at world.launch -->
-		<param name="initial_pose_x" value="4.988"/>  
-		<param name="initial_pose_y" value="-6.868"/>	
-		<param name="initial_pose_a" value="2.845"/>
+		<param name="initial_pose_x" value="2.377"/>  
+		<param name="initial_pose_y" value="-1.698"/>	
+		<param name="initial_pose_a" value="-1.57"/>
 	</node>
 
 	<node name="move_base" pkg="move_base" type="move_base" respawn="false" output="screen">
