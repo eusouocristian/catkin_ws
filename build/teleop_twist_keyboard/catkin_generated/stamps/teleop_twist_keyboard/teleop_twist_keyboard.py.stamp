@@ -75,7 +75,7 @@ class PublishThread(threading.Thread):
         self.y = 0.0
         self.z = 0.0
         self.th = 0.0
-        self.speed = 0.0
+        self.speed = 5.0
         self.turn = 0.0
         self.condition = threading.Condition()
         self.done = False
